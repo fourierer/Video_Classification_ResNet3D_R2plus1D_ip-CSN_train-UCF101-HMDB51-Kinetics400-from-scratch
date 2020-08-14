@@ -3,7 +3,9 @@ Using ResNet3D-50,R(2+1)D-50, and ip_CSN-50 to train UCD-101,HMDB-51 and Kinetic
 
 
 
-此repo是 https://github.com/fourierer/Video_Classification_ResNet3D_Pytorch 的拓展，该repo不再使用在Kinetics上预训练好模型微调，而是使用ResNet3D，R(2+1)D，以及ip-CSN直接从头训练UCF-101，HMDB-51和Kinetics-400。
+此repo是 https://github.com/fourierer/Video_Classification_ResNet3D_Pytorch 的拓展，该repo不再使用在Kinetics上预训练好模型微调，而是使用ResNet3D，R(2+1)D，以及ip-CSN直接从头训练UCF-101，HMDB-51和Kinetics-400。文件夹train中间是repo https://github.com/kenshohara/3D-ResNets-PyTorch 中的代码，添加了ip-CSN的网络结构代码，并利用这个网络在各大数据集上做了实验；文件夹preprocess是repo https://github.com/fourierer/Video_Classification_ResNet3D_Pytorch 中的代码，在这个基础之上进行了修改以适应Kinetics-400数据集。
+
+
 
 ### 一、利用ResNet3D-50，R(2+1)D-50及ip-CSN-50（ir-CSN-50）从头训练UCF-101 
 
@@ -775,7 +777,7 @@ python -m utils.ucf101_json /data1/sz/data_kinetics/kinetics-400-mp4 /data1/sz/d
 
 3.训练
 
-**使用ResNet3D-50训练（由于kinetics-400训练时间太长，这里只做一个ResNet3D的尝试，四张RTX 2080Ti显卡，batch_size设置为128）**
+**使用ResNet3D-50训练（由于kinetics-400训练时间太长，这里只做一个ResNet3D的尝试，四张12G Geforce RTX 2080Ti显卡，batch_size设置为128）**
 
 （1）训练命令
 
@@ -840,4 +842,6 @@ k代表top-k的准确率，输出top-1，top-3，top-5结果：
 ```python
 
 ```
+
+（待续，ResNet3D-50还没有训练完成，200个epoch一般需要10-15天）
 
