@@ -810,8 +810,8 @@ python main.py --root_path ~/data --video_path kinetics_videos/jpg --annotation_
 例如在我的服务器上为：
 
 ```shell
-python main.py --root_path /data1/sz/data_kinetics --video_path kinetics400_videos/jpg_mix_kinetics --annotation_path ucf101_1.json \
---result_path results_scratch_r3d --dataset ucf101 --resume_path results_scratch_r3d/save_200.pth \
+python main.py --root_path /data1/sz/data_kinetics --video_path kinetics400_videos/jpg_mix_kinetics --annotation_path ucf101_01.json \
+--result_path results_scratch_r3d --dataset ucf101 --resume_path results_scratch_r3d/save_50.pth \
 --model_depth 50 --n_classes 400 --n_threads 4 --no_train --no_val --inference --output_topk 5 --inference_batch_size 1
 ```
 
@@ -826,22 +826,37 @@ python -m util_scripts.eval_accuracy ~/data/kinetics.json ~/data/results/val.jso
 例如在我的服务器上为：
 
 ```shell
-python -m util_scripts.eval_accuracy /data1/sz/data_kinetics/ucf101_1.json /data1/sz/data_kinetics/results_scratch_r3d/val.json -k 1 --ignore
+python -m util_scripts.eval_accuracy /data1/sz/data_kinetics/ucf101_01.json /data1/sz/data_kinetics/results_scratch_r3d/val.json -k 1 --ignore
 ```
 
 k代表top-k的准确率，输出top-1，top-3，top-5结果：
 
 ```python
-
+load ground truth
+number of ground truth:19760
+load result
+number of result:19760
+calculate top-1 accuracy
+top-1 accuracy:0.4964574898785425
 ```
 
 ```python
-
+load ground truth
+number of ground truth:19760
+load result
+number of result:19760
+calculate top-3 accuracy
+top-3 accuracy:0.681831983805668
 ```
 
 ```python
-
+load ground truth
+number of ground truth:19760
+load result
+number of result:19760
+calculate top-5 accuracy
+top-5 accuracy:0.7487854251012146
 ```
 
-（待续，ResNet3D-50还没有训练完成，200个epoch一般需要10-15天）
+（200个epochs一般需要10-15天，这里只训练150个epochs，训练时长约为10天）
 
